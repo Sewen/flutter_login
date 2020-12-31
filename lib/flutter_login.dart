@@ -205,9 +205,9 @@ class __HeaderState extends State<_Header> {
 class FlutterLogin extends StatefulWidget {
   FlutterLogin({
     Key key,
-    @required this.onSignup,
     @required this.onLogin,
     @required this.onRecoverPassword,
+    this.onSignup,
     this.title = 'LOGIN',
     this.logo,
     this.messages,
