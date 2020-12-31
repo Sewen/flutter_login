@@ -620,6 +620,7 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     final auth = Provider.of<Auth>(context, listen: true);
     final isLogin = auth.isLogin;
+    final loginOnly = auth.onSignup == null;
     final messages = Provider.of<LoginMessages>(context, listen: false);
     final theme = Theme.of(context);
     final deviceSize = MediaQuery.of(context).size;
@@ -670,7 +671,7 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
               children: <Widget>[
                 _buildForgotPassword(theme, messages),
                 _buildSubmitButton(theme, messages, auth),
-                _buildSwitchAuthButton(theme, messages, auth),
+                (loginOnly) ? null : _buildSwitchAuthButton(theme, messages, auth),
               ],
             ),
           ),
